@@ -30,7 +30,7 @@ p{margin:0 0 12px}
 .hero{background:var(--soft);border-radius:14px;padding:20px 16px;text-align:center;margin:14px 0}
 .hero .t{font-size:14px;color:var(--muted);margin-bottom:6px}
 .hero .v{font-size:30px;font-weight:800;color:var(--teal);line-height:1.2}
-.hero .v .from{color:var(--warm);text-decoration:line-through;text-decoration-thickness:3px}
+.hero .v .from{color:var(--warm)}
 .hero .v .arrow{color:var(--muted);font-weight:400;margin:0 8px}
 .hero .s{font-size:14px;color:var(--muted);margin-top:8px}
 .note{font-size:14px;color:var(--muted);border-left:3px solid var(--line);padding-left:12px;margin:10px 0}
@@ -58,13 +58,15 @@ tr:last-child td,tr:last-child th{border-bottom:0}
 footer{padding:24px 20px 40px;font-size:13px;color:var(--muted);text-align:center;border-top:1px solid var(--line);background:#fff}
 .btn{display:block;text-align:center;background:var(--navy);color:#fff;text-decoration:none;padding:14px;border-radius:12px;font-weight:600;margin-top:16px}
 .assa .dots{display:flex;justify-content:flex-end;gap:6px;margin-bottom:8px}
-.assa .dots button{width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--muted);font-weight:700;font-size:13px;padding:0;cursor:pointer}
+.assa .dots button{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--muted);font-weight:700;font-size:17px;padding:0;cursor:pointer}
 .assa .dots button.on{background:var(--teal);border-color:var(--teal);color:#fff}
 .assa .box{background:#fff;border:1px solid var(--line);border-radius:14px;padding:3px}
 .assa .slides{display:grid;touch-action:pan-y}
 .assa .slides img{grid-area:1/1;width:100%;height:auto;display:block;border-radius:10px;opacity:0;transition:opacity .6s ease}
 .assa .slides img.on{opacity:1}
-.assa figcaption{display:flex;gap:6px;font-size:18px;font-weight:600;color:var(--teal);text-align:left;line-height:1.5;padding:10px 12px 9px;margin:0}
+.assa figcaption{display:flex;gap:5px;font-size:18px;font-weight:600;color:var(--teal);text-align:left;line-height:1.5;padding:9px 5px 8px;margin:0;white-space:nowrap}
+.assa figcaption .t{white-space:normal}
+.assa figcaption .warm{color:var(--warm)}
 .assa figcaption .k{flex:none}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.assa .slides img{transition:none}}
 </style>
@@ -117,11 +119,11 @@ footer{padding:24px 20px 40px;font-size:13px;color:var(--muted);text-align:cente
     <div class="dots" id="assaDots" role="tablist" aria-label="그림 단계"><button class="on" aria-label="A">A</button><button aria-label="B">B</button><button aria-label="C">C</button></div>
     <div class="box">
       <div class="slides" id="assaSlides">
-        <img src="img/assa-a2.jpg" class="on" alt="A. 기존 외측 삽입구로 전용 기구를 넣는 그림" data-cap="A|기존 외측 삽입구로 전용 기구를 넣습니다|(추가 절개 불필요)">
+        <img src="img/assa-a2.jpg" class="on" alt="A. 기존 외측 삽입구로 전용 기구를 넣는 그림" data-cap="A|기존 외측 삽입구로 전용 기구를 넣습니다|<span class=warm>(추가 절개 불필요)</span>">
         <img src="img/assa-b2.jpg" alt="B. 전용 기구가 극상근을 날개뼈 부착점에서 들어 올리는 그림" data-cap="B|전용 기구로 극상근을 부착점에서 부드럽게|들어 올립니다">
-        <img src="img/assa-c2.jpg" alt="C. 자유로워진 근육과 힘줄을 바깥쪽으로 옮긴 그림" data-cap="C|자유로워진 근육과 힘줄을 바깥쪽으로 옮깁니다">
+        <img src="img/assa-c2.jpg" alt="C. 자유로워진 힘줄이 부착 지점까지 당겨진 그림" data-cap="C|자유로워진 힘줄이 부착 지점까지 당겨집니다">
       </div>
-      <figcaption id="assaCap"><b class="k">A ·</b><span class="t">기존 외측 삽입구로 전용 기구를 넣습니다<br>(추가 절개 불필요)</span></figcaption>
+      <figcaption id="assaCap"><b class="k">A ·</b><span class="t">기존 외측 삽입구로 전용 기구를 넣습니다<br><span class="warm">(추가 절개 불필요)</span></span></figcaption>
     </div>
   </figure>
   <h3>광범위 파열 봉합 후 재파열률</h3>
