@@ -33,6 +33,7 @@ p{margin:0 0 12px}
 .hero .v .from{color:var(--warm)}
 .hero .v .arrow{color:var(--muted);font-weight:400;margin:0 8px}
 .hero .s{font-size:14px;color:var(--muted);margin-top:8px}
+.hero sup{font-size:13px;font-weight:600;color:var(--muted);vertical-align:super;margin-left:1px}
 .note{font-size:14px;color:var(--muted);border-left:3px solid var(--line);padding-left:12px;margin:10px 0}
 figure{margin:16px 0}figcaption{font-size:13px;color:var(--muted);text-align:center;margin-top:6px}
 svg{width:100%;height:auto;display:block}
@@ -64,7 +65,7 @@ footer{padding:24px 20px 40px;font-size:13px;color:var(--muted);text-align:cente
 .assa .slides{display:grid;touch-action:pan-y}
 .assa .slides img{grid-area:1/1;width:100%;height:auto;display:block;border-radius:10px;opacity:0;transition:opacity .6s ease}
 .assa .slides img.on{opacity:1}
-.assa figcaption{display:flex;gap:4px;font-size:18px;font-weight:600;color:var(--teal);text-align:left;line-height:1.5;padding:9px 3px 8px;margin:0;white-space:nowrap;letter-spacing:-.02em}
+.assa figcaption{display:flex;gap:4px;font-size:20px;font-weight:600;color:var(--teal);text-align:left;line-height:1.45;padding:9px 3px 8px;margin:0;white-space:nowrap;letter-spacing:-.02em}
 .assa figcaption .t{white-space:normal}
 .assa figcaption .warm{color:var(--warm)}
 .assa figcaption .k{flex:none}
@@ -79,7 +80,7 @@ footer{padding:24px 20px 40px;font-size:13px;color:var(--muted);text-align:cente
 <nav id="nav">
   <a href="#tear" class="on">광범위 파열이란?</a>
   <a href="#assa">수술 방법</a>
-  <a href="#graft">이식재 비교</a>
+  <a href="#graft">패치 보강술</a>
 </nav>
 <main>
 
@@ -128,34 +129,43 @@ footer{padding:24px 20px 40px;font-size:13px;color:var(--muted);text-align:cente
   </figure>
   <h3>광범위 파열 봉합 후 재파열률</h3>
   <div class="hero">
-    <div class="v"><span class="from">최대 94%</span><span class="arrow">→</span>18.4%</div>
+    <div class="v"><span class="from">최대 94%<sup>1)</sup></span><span class="arrow">→</span>18.4%<sup>2)</sup></div>
   </div>
-  <p class="note">출처<br>18.4% — Jo CH, Kim K, Ahn EM. Clinics in Orthopedic Surgery, 2025 (57명, 1년 MRI)<br>94% — Galatz 등, J Bone Joint Surg Am, 2004 (2cm 이상 대형·광범위 파열 18명 중 17명, 2년 초음파)<br>954명을 모은 문헌고찰(Henry 등, 2015)에서는 79%</p>
-  <div class="faq card">
-    <details><summary>근육을 떼어 내면 힘이 약해지지 않나요?</summary><p>근육의 신경과 혈관은 그대로 두고, 뼈에 붙은 면만 들어 올립니다. 위 연구에서 신경 손상은 확인되지 않았습니다.</p></details>
-    <details><summary>누구에게 적합한가요?</summary><p>힘줄이 퇴축해 당겨도 닿지 않지만, 근육이 완전히 지방으로 바뀌지는 않은 분이 대상입니다. 인공관절 전 단계에서 본인 힘줄을 살리는 선택지입니다.</p></details>
-  </div>
+  <p class="note">1) Galatz 등, J Bone Joint Surg Am, 2004 — 2cm 이상 대형·광범위 파열 18명 중 17명 재파열 (2년, 초음파). 954명을 모은 문헌고찰(Henry 등, 2015)에서는 79%<br>2) Jo CH, Kim K, Ahn EM. Clinics in Orthopedic Surgery, 2025 — ASSA 57명, 1년 MRI</p>
 </section>
 
 <section id="graft">
-  <h2>• 이식재 비교</h2>
+  <h2>• 패치 보강술</h2>
   <p class="lead">봉합한 힘줄 위에 얇은 패치를 덧대어 <b>새 조직이 자라도록 돕는</b> 재료입니다. 수술 후 몇 달에 걸쳐 몸에 흡수되며, 힘줄이 두꺼워지는 효과가 보고되어 있습니다.</p>
+  <h3>패치 보강 후 재파열률 (2년)</h3>
+  <div class="hero">
+    <div class="v"><span class="from">봉합만 35.1%</span><span class="arrow">→</span>12.3%<sup>3)</sup></div>
+  </div>
+  <p class="note">3) Ruiz-Ibán 등, MALLAMANGUITO 무작위 비교 연구 — 중간~대형 전층 파열 114명, 봉합만 한 군 35.1% vs 리제네텐 덧댄 군 12.3% (2년 MRI). 폴리젠은 사람 대상 결과가 아직 발표되지 않았습니다.</p>
   <table>
     <thead><tr><th></th><th class="pg">폴리젠</th><th class="rg">리제네텐</th></tr></thead>
     <tbody>
       <tr><th>제조사</th><td>ARC Korea<br><span class="price">한국</span></td><td>Smith+Nephew<br><span class="price">영국</span></td></tr>
       <tr><th>재료</th><td><b>돼지</b> 유래 콜라겐</td><td><b>소</b> 힘줄 유래 콜라겐</td></tr>
       <tr><th>고정</th><td>봉합사로 직접 고정</td><td>전용 특수 고정기구</td></tr>
-      <tr><th>금액<br><span class="sub">(본인부담)</span></th><td><span class="price">280만원</span><br><span class="sub">(350만원 중)</span></td><td><span class="price">960만원</span><br><span class="sub">(1,200만원 중)</span></td></tr>
+      <tr><th>본인부담</th><td><span class="price">약 70만원</span><br><span class="sub">(350만원 중)</span></td><td><span class="price">약 240만원</span><br><span class="sub">(1,200만원 중)</span></td></tr>
     </tbody>
   </table>
   <div class="ins">
-    <p><b>실손의료보험 적용 가능</b> — 두 이식재 모두 <b>"인정비급여"</b> 항목입니다. 실손보험에 가입되어 있으면 가입 세대에 따라 자기부담금을 제외한 <b>비용의 상당 부분(통상 70~90%)</b>을 돌려받을 수 있습니다. 정확한 비율은 가입하신 보험사에 확인해 주세요.</p>
+    <p><b>실손의료보험 적용 가능</b> — 두 패치 모두 <b>"인정비급여"</b> 항목이라 실손 청구가 됩니다. 위 본인부담은 <b>약 80% 를 돌려받는다고 가정한 금액</b>이며, 환급 비율은 가입한 보험(세대)마다 다르므로 보험사에 확인해 주세요.</p>
   </div>
   <div class="card">
     <h3>어떤 것을 고르나요?</h3>
     <p>두 재료 모두 "봉합을 대신"하는 것이 아니라 <b>봉합이 잘 붙도록 돕는</b> 역할입니다. 파열 크기, 힘줄 상태, 비용, 보험 조건을 함께 보고 의료진과 상의해 결정합니다.</p>
     <p class="note">이 페이지의 수치는 발표된 논문과 제조사 공개 자료를 근거로 하며, 개인의 결과를 보장하지 않습니다. 금액은 병원·시기에 따라 달라질 수 있습니다.</p>
+  </div>
+</section>
+
+<section id="qa">
+  <h2>• Q&A</h2>
+  <div class="faq card">
+    <details><summary>근육을 떼어 내면 힘이 약해지지 않나요?</summary><p>근육의 신경과 혈관은 그대로 두고, 뼈에 붙은 면만 들어 올립니다. 위 연구에서 신경 손상은 확인되지 않았습니다.</p></details>
+    <details><summary>누구에게 적합한가요?</summary><p>힘줄이 퇴축해 당겨도 닿지 않지만, 근육이 완전히 지방으로 바뀌지는 않은 분이 대상입니다. 인공관절 전 단계에서 본인 힘줄을 살리는 선택지입니다.</p></details>
   </div>
   <a class="btn" href="#tear">처음으로</a>
 </section>
