@@ -64,7 +64,8 @@ footer{padding:24px 20px 40px;font-size:13px;color:var(--muted);text-align:cente
 .assa .slides{display:grid;touch-action:pan-y}
 .assa .slides img{grid-area:1/1;width:100%;height:auto;display:block;border-radius:10px;opacity:0;transition:opacity .6s ease}
 .assa .slides img.on{opacity:1}
-.assa figcaption{font-size:18px;font-weight:600;color:var(--teal);text-align:left;line-height:1.5;padding:10px 12px 9px;margin:0}
+.assa figcaption{display:flex;gap:6px;font-size:18px;font-weight:600;color:var(--teal);text-align:left;line-height:1.5;padding:10px 12px 9px;margin:0}
+.assa figcaption .k{flex:none}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.assa .slides img{transition:none}}
 </style>
 </head>
@@ -116,11 +117,11 @@ footer{padding:24px 20px 40px;font-size:13px;color:var(--muted);text-align:cente
     <div class="dots" id="assaDots" role="tablist" aria-label="그림 단계"><button class="on" aria-label="A">A</button><button aria-label="B">B</button><button aria-label="C">C</button></div>
     <div class="box">
       <div class="slides" id="assaSlides">
-        <img src="img/assa-a.jpg" class="on" alt="A. 기존 외측 삽입구로 전용 기구를 넣는 그림" data-cap="A · 기존 외측 삽입구로 전용 기구를 넣습니다 (추가 절개 불필요)">
-        <img src="img/assa-b.jpg" alt="B. 전용 기구가 극상근을 날개뼈 부착점에서 들어 올리는 그림" data-cap="B · 전용 기구로 극상근을 부착점에서 부드럽게 들어 올립니다">
-        <img src="img/assa-c.jpg" alt="C. 자유로워진 근육과 힘줄을 바깥쪽으로 옮긴 그림" data-cap="C · 자유로워진 근육과 힘줄을 바깥쪽으로 옮깁니다">
+        <img src="img/assa-a2.jpg" class="on" alt="A. 기존 외측 삽입구로 전용 기구를 넣는 그림" data-cap="A|기존 외측 삽입구로 전용 기구를 넣습니다|(추가 절개 불필요)">
+        <img src="img/assa-b2.jpg" alt="B. 전용 기구가 극상근을 날개뼈 부착점에서 들어 올리는 그림" data-cap="B|전용 기구로 극상근을 부착점에서 부드럽게|들어 올립니다">
+        <img src="img/assa-c2.jpg" alt="C. 자유로워진 근육과 힘줄을 바깥쪽으로 옮긴 그림" data-cap="C|자유로워진 근육과 힘줄을 바깥쪽으로 옮깁니다">
       </div>
-      <figcaption id="assaCap">A · 기존 외측 삽입구로 전용 기구를 넣습니다 (추가 절개 불필요)</figcaption>
+      <figcaption id="assaCap"><b class="k">A ·</b><span class="t">기존 외측 삽입구로 전용 기구를 넣습니다<br>(추가 절개 불필요)</span></figcaption>
     </div>
   </figure>
   <h3>광범위 파열 봉합 후 재파열률</h3>
@@ -167,7 +168,7 @@ footer{padding:24px 20px 40px;font-size:13px;color:var(--muted);text-align:cente
 (function(){
   var imgs=[].slice.call(document.querySelectorAll('#assaSlides img')),dots=[].slice.call(document.querySelectorAll('#assaDots button')),cap=document.getElementById('assaCap');
   var i=0,timer,HOLD=3000;
-  function show(n){i=(n+imgs.length)%imgs.length;imgs.forEach(function(im,j){im.classList.toggle('on',j===i)});dots.forEach(function(d,j){d.classList.toggle('on',j===i)});cap.textContent=imgs[i].getAttribute('data-cap')}
+  function show(n){i=(n+imgs.length)%imgs.length;imgs.forEach(function(im,j){im.classList.toggle('on',j===i)});dots.forEach(function(d,j){d.classList.toggle('on',j===i)});var c=imgs[i].getAttribute('data-cap').split('|');cap.querySelector('.k').textContent=c[0]+' ·';cap.querySelector('.t').innerHTML=c.slice(1).join('<br>')}
   function start(){stop();timer=setInterval(function(){show(i+1)},HOLD)}
   function stop(){clearInterval(timer)}
   dots.forEach(function(d,j){d.addEventListener('click',function(){show(j);start()})});
