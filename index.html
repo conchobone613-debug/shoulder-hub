@@ -21,6 +21,7 @@ section{padding-top:28px}
 h2{font-size:22px;margin:0 0 6px;color:var(--navy)}
 h3{font-size:17px;margin:22px 0 8px}
 h3.ct{text-align:center;font-size:21px;margin-top:26px}
+h3.ct .warm{color:var(--warm)}
 p{margin:0 0 12px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin:14px 0}
 .card h3:first-child{margin-top:0}
@@ -30,9 +31,9 @@ p{margin:0 0 12px}
 .step b{display:block;margin-bottom:2px}
 .hero{background:var(--soft);border-radius:14px;padding:20px 16px;text-align:center;margin:14px 0}
 .hero .t{font-size:14px;color:var(--muted);margin-bottom:6px}
-.hero .v{font-size:30px;font-weight:800;color:var(--teal);line-height:1.2}
-.hero .v .from{color:var(--warm)}
-.hero .v .arrow{color:var(--muted);font-weight:400;margin:0 8px}
+.hero .v{font-size:36px;font-weight:800;color:var(--warm);line-height:1.2}
+.hero .v .from{color:var(--teal);font-size:20px;font-weight:400}
+.hero .v .arrow{color:var(--muted);font-weight:400;font-size:24px;margin:0 8px}
 .hero .s{font-size:14px;color:var(--muted);margin-top:8px}
 .hero sup{font-size:13px;font-weight:600;color:var(--muted);vertical-align:super;margin-left:1px}
 .note{font-size:14px;color:var(--muted);border-left:3px solid var(--line);padding-left:12px;margin:10px 0}
@@ -128,7 +129,7 @@ footer{padding:24px 20px 40px;font-size:13px;color:var(--muted);text-align:cente
       <figcaption id="assaCap"><b class="k">A ·</b><span class="t">기존 외측 삽입구로 전용 기구를 넣습니다<br><span class="warm">(추가 절개 불필요)</span></span></figcaption>
     </div>
   </figure>
-  <h3 class="ct">광범위 파열 봉합 후 재파열률 감소</h3>
+  <h3 class="ct">광범위 파열 봉합 후 <span class="warm">재파열률 감소</span></h3>
   <div class="hero">
     <div class="v"><span class="from">최대 94%<sup>1)</sup></span><span class="arrow">→</span>18.4%<sup>2)</sup></div>
   </div>
@@ -138,7 +139,7 @@ footer{padding:24px 20px 40px;font-size:13px;color:var(--muted);text-align:cente
 <section id="graft">
   <h2>• 패치 보강술</h2>
   <p class="lead">봉합한 힘줄 위에 얇은 패치를 덧대어 <b>새 조직이 자라도록 돕는</b> 재료입니다. 수술 후 몇 달에 걸쳐 몸에 흡수되며, 힘줄이 두꺼워지는 효과가 보고되어 있습니다.</p>
-  <h3 class="ct">패치 보강 후 재파열률 감소</h3>
+  <h3 class="ct">패치 보강 후 <span class="warm">재파열률 감소</span></h3>
   <div class="hero">
     <div class="v"><span class="from">봉합만 25.8%</span><span class="arrow">→</span>8.3%<sup>3)</sup></div>
   </div>
@@ -181,13 +182,16 @@ footer{padding:24px 20px 40px;font-size:13px;color:var(--muted);text-align:cente
 (function(){
   var imgs=[].slice.call(document.querySelectorAll('#assaSlides img')),dots=[].slice.call(document.querySelectorAll('#assaDots button')),cap=document.getElementById('assaCap');
   var i=0,timer,HOLD=3000;
-  function show(n){i=(n+imgs.length)%imgs.length;imgs.forEach(function(im,j){im.classList.toggle('on',j===i)});dots.forEach(function(d,j){d.classList.toggle('on',j===i)});var c=imgs[i].getAttribute('data-cap').split('|');cap.querySelector('.k').textContent=c[0]+' ·';cap.querySelector('.t').innerHTML=c.slice(1).join('<br>')}
+  function setCap(im){var c=im.getAttribute('data-cap').split('|');cap.querySelector('.k').textContent=c[0]+' ·';cap.querySelector('.t').innerHTML=c.slice(1).join('<br>')}
+  function fit(){cap.style.minHeight='';var m=0;imgs.forEach(function(im){setCap(im);m=Math.max(m,cap.offsetHeight)});cap.style.minHeight=m+'px';setCap(imgs[i])}
+  function show(n){i=(n+imgs.length)%imgs.length;imgs.forEach(function(im,j){im.classList.toggle('on',j===i)});dots.forEach(function(d,j){d.classList.toggle('on',j===i)});setCap(imgs[i])}
   function start(){stop();timer=setInterval(function(){show(i+1)},HOLD)}
   function stop(){clearInterval(timer)}
   dots.forEach(function(d,j){d.addEventListener('click',function(){show(j);start()})});
   var box=document.getElementById('assaSlides');
   box.addEventListener('pointerdown',stop);box.addEventListener('pointerup',start);box.addEventListener('pointercancel',start);
   document.addEventListener('visibilitychange',function(){document.hidden?stop():start()});
+  fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
   start();
 })();
 </script>
