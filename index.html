@@ -53,6 +53,11 @@ svg{width:100%;height:auto;display:block}
 .faq p{margin-top:8px;font-size:15px}
 footer{padding:24px 20px 40px;font-size:13px;color:var(--muted);text-align:center;border-top:1px solid var(--line);background:#fff}
 .btn{display:block;text-align:center;background:var(--navy);color:#fff;text-decoration:none;padding:14px;border-radius:12px;font-weight:600;margin-top:16px}
+.fig2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fig2 figure,.figw figure{margin:0}
+.fig2 img,.figw img{width:100%;height:auto;border-radius:10px;border:1px solid var(--line);display:block}
+.layers{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-top:8px}
+.layers span{background:var(--soft);border-radius:999px;padding:3px 10px}
 @media(min-width:560px){.cmp{grid-template-columns:1fr 1fr}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
@@ -168,6 +173,20 @@ footer{padding:24px 20px 40px;font-size:13px;color:var(--muted);text-align:cente
         <dt>비고</dt><dd>사람 대상 발표 논문은 아직 없음(동물실험 단계). 국내 급여·비용은 병원에 문의</dd>
       </dl>
     </div>
+  </div>
+  <div class="card">
+    <h3>PolyGen 은 어떻게 생겼나요?</h3>
+    <p>얇은 콜라겐 스펀지를 흡수성 그물 주머니가 위아래로 감싼 <b>3겹 구조</b>입니다. 두께는 약 0.25mm 입니다.</p>
+    <div class="figw"><figure><img src="img/polygen-structure.jpg" alt="PolyGen 3겹 구조: 그물 주머니 - 콜라겐 스펀지 - 그물 주머니" loading="lazy"><figcaption>3겹 구조 (위·아래 그물 주머니, 가운데 콜라겐 스펀지)</figcaption></figure></div>
+    <div class="layers"><span>① 흡수성 그물 (PCL)</span><span>② 콜라겐 스펀지</span><span>③ 흡수성 그물 (PCL)</span></div>
+    <div class="fig2" style="margin-top:14px">
+      <figure><img src="img/polygen-collagen.jpg" alt="콜라겐 스펀지 현미경 사진과 세포가 붙어 자라는 모습 그림" loading="lazy"><figcaption>콜라겐 스펀지: 세포가 붙어 자라는 발판</figcaption></figure>
+      <figure><img src="img/polygen-pouch.jpg" alt="흡수성 PCL 그물 주머니 사진과 구조 그림" loading="lazy"><figcaption>그물 주머니: 세포를 보호하고 초기 강도 유지</figcaption></figure>
+    </div>
+    <h3>제조사 동물실험 자료</h3>
+    <div class="figw"><figure><img src="img/polygen-thickness.jpg" alt="수술 후 4·8·12주 힘줄 두께 그래프. 부분 파열과 완전 파열 모두 12주째 PolyGen 군이 봉합만 한 군보다 두꺼움" loading="lazy"><figcaption>수술 후 힘줄 두께 (회색: 정상 대조, 파랑: 봉합만, 남색: 봉합 + PolyGen). 12주째 봉합만 한 경우의 약 1.85배</figcaption></figure></div>
+    <div class="figw" style="margin-top:12px"><figure><img src="img/polygen-histology.jpg" alt="수술 12주 후 조직 염색 사진 두 장. 패치 주변에 가지런한 콜라겐 섬유" loading="lazy"><figcaption>12주 후 조직 사진: 패치 주변으로 가지런히 정렬된 콜라겐 섬유, 염증 소견 없음</figcaption></figure></div>
+    <p class="note">출처: ARC Korea PolyGen 브로슈어 (동물실험 내부 자료). 사람에서의 결과는 아직 발표되지 않았습니다.</p>
   </div>
   <div class="card">
     <h3>어떤 것을 고르나요?</h3>
