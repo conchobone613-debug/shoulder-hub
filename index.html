@@ -24,8 +24,8 @@ h2.ct2{text-align:center;margin:0 0 34px;padding:18px 16px;border-radius:14px;ba
 h3{font-size:21px;margin:22px 0 8px}
 .mri .dots button{width:auto;padding:0 16px;border-radius:999px;font-size:19px}
 .mri .box{background:#000;border-color:#000}
-.mri figcaption{color:#fff}
-.mri figcaption .k{color:#fff}
+.mri .dots button:nth-child(2){color:var(--warm);border-color:var(--warm)}
+.mri .dots button:nth-child(2).on{background:var(--warm);color:#fff}
 nav,table,h2,h3,.assa figcaption,.hero,.ins .fine{word-break:keep-all}
 h3.ct{text-align:center;font-size:26px;margin-top:26px}
 h3.ct .warm{color:var(--warm)}
@@ -103,9 +103,8 @@ footer{padding:24px 20px 40px;font-size:16px;color:var(--muted);text-align:cente
     <div class="box">
       <div class="slides">
         <img src="img/mri-normal3.jpg" class="on" alt="정상 회전근개 MRI" data-cap="정상|회전근개 힘줄이 뼈에 붙어 있습니다">
-        <img src="img/mri-tear3.jpg" alt="광범위 파열로 퇴축된 회전근개 MRI" data-cap="파열|힘줄이 끊어져 안쪽으로 퇴축되었습니다">
+        <img src="img/mri-tear4.jpg" alt="광범위 파열로 퇴축된 회전근개 MRI" data-cap="파열|힘줄이 끊어져 안쪽으로 퇴축되었습니다">
       </div>
-      <figcaption><b class="k">정상 ·</b><span class="t">회전근개 힘줄이 뼈에 붙어 있습니다</span></figcaption>
     </div>
   </figure>
   <div class="card">
@@ -190,8 +189,8 @@ footer{padding:24px 20px 40px;font-size:16px;color:var(--muted);text-align:cente
   function init(fig){
     var imgs=[].slice.call(fig.querySelectorAll('.slides img')),dots=[].slice.call(fig.querySelectorAll('.dots button')),cap=fig.querySelector('figcaption'),box=fig.querySelector('.slides');
     var i=0,timer;
-    function setCap(im){var c=im.getAttribute('data-cap').split('|');cap.querySelector('.k').textContent=c[0]+' ·';cap.querySelector('.t').innerHTML=c.slice(1).join('<br>')}
-    function fit(){cap.style.minHeight='';var m=0;imgs.forEach(function(im){setCap(im);m=Math.max(m,cap.offsetHeight)});cap.style.minHeight=m+'px';setCap(imgs[i])}
+    function setCap(im){if(!cap)return;var c=im.getAttribute('data-cap').split('|');cap.querySelector('.k').textContent=c[0]+' ·';cap.querySelector('.t').innerHTML=c.slice(1).join('<br>')}
+    function fit(){if(!cap)return;cap.style.minHeight='';var m=0;imgs.forEach(function(im){setCap(im);m=Math.max(m,cap.offsetHeight)});cap.style.minHeight=m+'px';setCap(imgs[i])}
     function show(n){i=(n+imgs.length)%imgs.length;imgs.forEach(function(im,j){im.classList.toggle('on',j===i)});dots.forEach(function(d,j){d.classList.toggle('on',j===i)});setCap(imgs[i])}
     function start(){stop();timer=setInterval(function(){show(i+1)},HOLD)}
     function stop(){clearInterval(timer)}
