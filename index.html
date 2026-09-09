@@ -22,8 +22,10 @@ section[hidden]{display:none}
 h2{font-size:28px;margin:0 0 6px;color:var(--navy)}
 h2.ct2{text-align:center;margin:0 0 34px;padding:18px 16px;border-radius:14px;background:linear-gradient(135deg,#0f3d5e 0%,#14567a 100%);color:#fff;letter-spacing:.01em;box-shadow:0 6px 18px rgba(15,61,94,.18);line-height:1.35}
 h3{font-size:21px;margin:22px 0 8px}
-.mri .row{display:flex;gap:6px;background:#000;border-radius:14px;padding:4px;overflow:hidden}
-.mri img{flex:1;min-width:0;width:50%;height:auto;border-radius:10px}
+.mri .dots button{width:auto;padding:0 16px;border-radius:999px;font-size:19px}
+.mri .box{background:#000;border-color:#000}
+.mri figcaption{color:#fff}
+.mri figcaption .k{color:#fff}
 nav,table,h2,h3,.assa figcaption,.hero,.ins .fine{word-break:keep-all}
 h3.ct{text-align:center;font-size:26px;margin-top:26px}
 h3.ct .warm{color:var(--warm)}
@@ -112,10 +114,14 @@ footer{padding:24px 20px 40px;font-size:16px;color:var(--muted);text-align:cente
       <text x="370" y="195" font-family="sans-serif" font-size="16" fill="#5b6b76">힘줄 끝이 뼈까지 닿지 않음</text>
     </svg>
   </figure>
-  <figure class="mri">
-    <div class="row">
-      <img src="img/mri-normal2.jpg" alt="정상 회전근개 MRI">
-      <img src="img/mri-tear.jpg" alt="광범위 파열로 퇴축된 회전근개 MRI">
+  <figure class="assa mri">
+    <div class="dots" role="tablist" aria-label="MRI 비교"><button class="on">정상</button><button>파열</button></div>
+    <div class="box">
+      <div class="slides">
+        <img src="img/mri-normal3.jpg" class="on" alt="정상 회전근개 MRI" data-cap="정상|회전근개 힘줄이 뼈에 붙어 있습니다">
+        <img src="img/mri-tear2.jpg" alt="광범위 파열로 퇴축된 회전근개 MRI" data-cap="파열|힘줄이 끊어져 안쪽으로 퇴축되었습니다">
+      </div>
+      <figcaption><b class="k">정상 ·</b><span class="t">회전근개 힘줄이 뼈에 붙어 있습니다</span></figcaption>
     </div>
   </figure>
   <div class="card">
@@ -196,19 +202,23 @@ footer{padding:24px 20px 40px;font-size:16px;color:var(--muted);text-align:cente
   window.addEventListener('hashchange',function(){activate(location.hash.slice(1),true)});
 })();
 (function(){
-  var imgs=[].slice.call(document.querySelectorAll('#assaSlides img')),dots=[].slice.call(document.querySelectorAll('#assaDots button')),cap=document.getElementById('assaCap');
-  var i=0,timer,HOLD=3000;
-  function setCap(im){var c=im.getAttribute('data-cap').split('|');cap.querySelector('.k').textContent=c[0]+' ·';cap.querySelector('.t').innerHTML=c.slice(1).join('<br>')}
-  function fit(){cap.style.minHeight='';var m=0;imgs.forEach(function(im){setCap(im);m=Math.max(m,cap.offsetHeight)});cap.style.minHeight=m+'px';setCap(imgs[i])}
-  function show(n){i=(n+imgs.length)%imgs.length;imgs.forEach(function(im,j){im.classList.toggle('on',j===i)});dots.forEach(function(d,j){d.classList.toggle('on',j===i)});setCap(imgs[i])}
-  function start(){stop();timer=setInterval(function(){show(i+1)},HOLD)}
-  function stop(){clearInterval(timer)}
-  dots.forEach(function(d,j){d.addEventListener('click',function(){show(j);start()})});
-  var box=document.getElementById('assaSlides');
-  box.addEventListener('pointerdown',stop);box.addEventListener('pointerup',start);box.addEventListener('pointercancel',start);
-  document.addEventListener('visibilitychange',function(){document.hidden?stop():start()});
-  window.assaFit=fit;fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
-  start();
+  var HOLD=3000,figs=[].slice.call(document.querySelectorAll('figure.assa'));
+  function init(fig){
+    var imgs=[].slice.call(fig.querySelectorAll('.slides img')),dots=[].slice.call(fig.querySelectorAll('.dots button')),cap=fig.querySelector('figcaption'),box=fig.querySelector('.slides');
+    var i=0,timer;
+    function setCap(im){var c=im.getAttribute('data-cap').split('|');cap.querySelector('.k').textContent=c[0]+' ·';cap.querySelector('.t').innerHTML=c.slice(1).join('<br>')}
+    function fit(){cap.style.minHeight='';var m=0;imgs.forEach(function(im){setCap(im);m=Math.max(m,cap.offsetHeight)});cap.style.minHeight=m+'px';setCap(imgs[i])}
+    function show(n){i=(n+imgs.length)%imgs.length;imgs.forEach(function(im,j){im.classList.toggle('on',j===i)});dots.forEach(function(d,j){d.classList.toggle('on',j===i)});setCap(imgs[i])}
+    function start(){stop();timer=setInterval(function(){show(i+1)},HOLD)}
+    function stop(){clearInterval(timer)}
+    dots.forEach(function(d,j){d.addEventListener('click',function(){show(j);start()})});
+    box.addEventListener('pointerdown',stop);box.addEventListener('pointerup',start);box.addEventListener('pointercancel',start);
+    document.addEventListener('visibilitychange',function(){document.hidden?stop():start()});
+    fig._fit=fit;start();
+  }
+  figs.forEach(init);
+  function fitAll(){figs.forEach(function(f){f._fit()})}
+  window.assaFit=fitAll;fitAll();window.addEventListener('resize',fitAll);window.addEventListener('load',fitAll);
 })();
 </script>
 </body>
